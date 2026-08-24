@@ -77,21 +77,33 @@ python scripts/check_setup.py
 
 ### Diagram Type Identification
 
-Identify the appropriate diagram type based on user intent:
+Identify the appropriate diagram type based on user intent.
+
+**WikiTicket / GitHub wiki default is `design-doc-mermaid`.** Use the
+sequence, class, activity, state, ER, and component rows below only when
+the user names PlantUML or you are converting existing `.puml` files.
+Always emit PNG or SVG. Never leave a raw PlantUML fence as the only view.
 
 | User Intent | Diagram Type | Reference |
 |-------------|--------------|-----------|
-| Interactions over time | Sequence | `references/sequence_diagrams.md` |
-| System structure with classes | Class | `references/class_diagrams.md` |
-| Workflows, decision flows | Activity | `references/activity_diagrams.md` |
-| Object states and transitions | State | `references/state_diagrams.md` |
-| Database schemas | ER (Entity Relationship) | `references/er_diagrams.md` |
+| UI mock, screen sketch | Salt wireframe | `references/wireframes_salt.md` |
+| Actors and goals | Use Case | `references/use_case_diagrams.md` |
+| Clock, waveform | Timing | `references/timing_diagrams.md` |
+| Enterprise layers | ArchiMate | `references/archimate_diagrams.md` |
+| Network rack | nwdiag | `references/network_diagrams.md` |
+| Work breakdown | WBS | `references/wbs_diagrams.md` |
+| Interactions over time (only if user names PlantUML) | Sequence | `references/sequence_diagrams.md` |
+| System structure with classes (only if user names PlantUML) | Class | `references/class_diagrams.md` |
+| Workflows, decision flows (only if user names PlantUML) | Activity | `references/activity_diagrams.md` |
+| Object states and transitions (only if user names PlantUML) | State | `references/state_diagrams.md` |
+| Database schemas (only if user names PlantUML) | ER (Entity Relationship) | `references/er_diagrams.md` |
 | Project timelines | Gantt | `references/gantt_diagrams.md` |
 | Idea organization | MindMap | `references/mindmap_diagrams.md` |
-| System architecture | Component | `references/component_diagrams.md` |
-| Actors and features | Use Case | `references/use_case_diagrams.md` |
+| System architecture (only if user names PlantUML) | Component | `references/component_diagrams.md` |
 | All 19 types | See navigation hub | `references/toc.md` |
 | WikiTicket / GitHub wiki / Confluence | Image export rules | `references/wiki-ticket-integration.md` |
+
+
 
 **Syntax resources:**
 
