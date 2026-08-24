@@ -1,0 +1,19 @@
+{
+  "name": "plantuml",
+  "description": "Leftover UML Mermaid cannot do easily (Salt wireframes, use case, timing, ArchiMate, nwdiag, WBS) plus PNG/SVG export. GitHub wiki does not render PlantUML source.",
+  "version": "1.2.2",
+  "author": {
+    "name": "Rick Hightower",
+    "url": "https://github.com/RichardHightower"
+  },
+  "homepage": "https://github.com/SpillwaveSolutions/plantuml",
+  "repository": "https://github.com/SpillwaveSolutions/plantuml",
+  "license": "MIT",
+  "keywords": [
+    "plantuml",
+    "wireframe",
+    "uml",
+    "diagrams",
+    "claude-code"
+  ]
+}
