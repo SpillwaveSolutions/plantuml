@@ -1,6 +1,6 @@
 ---
 name: plantuml
-description: Generate PlantUML diagrams from text descriptions and convert them to PNG/SVG images. Use when asked to "create a diagram", "generate PlantUML", "convert puml to image", "extract diagrams from markdown", or "prepare markdown for Confluence". Supports all PlantUML diagram types including UML (sequence, class, activity, state, component, deployment, use case, object, timing) and non-UML (ER diagrams, Gantt charts, JSON/YAML visualization, mindmaps, WBS, network diagrams, wireframes, and more).
+description: Generate leftover PlantUML types Mermaid cannot do easily (Salt wireframes, use case, timing, ArchiMate, nwdiag, WBS) and convert them to PNG/SVG. Use when asked for a wireframe, PlantUML image export, extract puml from markdown, or prepare Confluence uploads. Class, ER, state, sequence, and C4 default to design-doc-mermaid on GitHub wiki.
 ---
 
 # PlantUML Diagram Generation and Conversion
@@ -38,17 +38,24 @@ This skill enables comprehensive PlantUML diagram creation and conversion workfl
 
 ## When to Use This Skill
 
+**Default for WikiTicket, GitHub wiki, architecture docs, walkthroughs, and requirements is `design-doc-mermaid`.** GitHub renders fenced mermaid (flowchart, sequence, class, ER, state, C4). This skill is opt-in.
+
 **Activate for:**
 
-- Diagram creation requests (e.g., "Create a sequence diagram showing authentication flow")
-- Code architecture visualization (e.g., "Create deployment diagram for my Spring Boot app")
-- `.puml` file to image conversion
-- Markdown files containing ```puml code blocks or linked .puml files
-- Confluence or Notion markdown preparation (documents with PlantUML diagrams require conversion first)
-- Specific diagram types: UML (sequence, class, activity, state, component, deployment, use case, object, timing) or non-UML (ER, Gantt, mindmap, WBS, JSON/YAML, network, Archimate, wireframes)
+- Salt wireframes / UI mocks
+- UML use case, timing, ArchiMate
+- nwdiag networks, WBS, JSON/YAML trees
+- `.puml` file to PNG or SVG conversion (always required; GitHub wiki does not render PlantUML source)
+- Markdown files containing PlantUML fences or linked `.puml` files
+- Confluence or Notion image export (render first, then upload)
 - PlantUML syntax validation
+- A user who already has `.puml` source and wants an image
 
-**Confluence/Notion uploads:** If markdown contains PlantUML diagrams, run conversion FIRST before upload.
+**Do not** take class, ER, state, sequence, or C4 from WikiTicket design docs unless Mermaid cannot do the job or the user names PlantUML.
+
+**GitHub wiki:** never leave a raw PlantUML fence as the only view. Render PNG or SVG, commit under `docs/diagrams/`, link the image, upload it with the wiki page.
+
+**Confluence/Notion:** render PlantUML (and Mermaid, via `design-doc-mermaid`) to PNG or SVG and upload both. See `references/wiki-ticket-integration.md`.
 
 ## Prerequisites
 
@@ -84,6 +91,7 @@ Identify the appropriate diagram type based on user intent:
 | System architecture | Component | `references/component_diagrams.md` |
 | Actors and features | Use Case | `references/use_case_diagrams.md` |
 | All 19 types | See navigation hub | `references/toc.md` |
+| WikiTicket / GitHub wiki / Confluence | Image export rules | `references/wiki-ticket-integration.md` |
 
 **Syntax resources:**
 
@@ -287,6 +295,7 @@ database "💾 PostgreSQL" as db
 
 | Resource | Purpose |
 |----------|---------|
+| `references/wiki-ticket-integration.md` | WikiTicket leftover types, always PNG/SVG, Confluence upload |
 | `references/toc.md` | Navigation hub for all 19 diagram types |
 | `references/common_format.md` | Universal elements (delimiters, metadata, comments) |
 | `references/styling_guide.md` | Modern `<style>` syntax with CSS-like rules |
